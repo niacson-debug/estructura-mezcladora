@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual de Soldadura — Estructura mezcladora</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0 auto; padding: 20px; background: #f4f4f7; color: #222; max-width: 1100px; }
+  h1, h2 { color: #1a3a5c; }
+  h1 { text-align: center; border-bottom: 3px solid #ffc700; padding-bottom: 10px; }
+  h2 { border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 30px; }
+  .intro, .piece-card, .summary-card { background: white; border: 1px solid #d8d8d8; border-radius: 8px; padding: 18px 22px; margin: 16px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .piece-title { font-size: 17px; font-weight: bold; color: #b00020; margin: 0 0 8px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+  .piece-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 800px) { .piece-grid { grid-template-columns: 1fr; } }
+  .svg-wrap { background: #fafbfc; border: 1px solid #e0e0e0; border-radius: 6px; padding: 6px; text-align: center; }
+  .specs { font-size: 14px; line-height: 1.55; }
+  .specs h3 { font-size: 14px; margin: 12px 0 4px; color: #b88000; }
+  .specs ul { margin: 4px 0; padding-left: 22px; }
+  .specs li { margin-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 6px 0; }
+  th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: left; }
+  th { background: #fff8e1; }
+  .tube { fill: #c8d0d6; stroke: #2a3a4a; stroke-width: 1.8; }
+  .weld { fill: #ffc700; stroke: #b88000; stroke-width: 1.2; }
+  .bolt-hole { fill: #d62020; stroke: #700000; stroke-width: 1.2; }
+  .dim { stroke: #0066aa; stroke-width: 1; fill: none; }
+  .dim-text { font: bold 13px Arial; fill: #0066aa; }
+  .label { font: italic 12px Arial; fill: #444; }
+  .label-b { font: bold 12px Arial; fill: #1a3a5c; }
+  .axis-dash { stroke: #aaa; stroke-width: 1; stroke-dasharray: 4 3; }
+  .tip { background:#fff8dc; border-left:4px solid #ffc700; padding:10px 14px; border-radius:4px; font-size:13px; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<h1>🔥 Manual de Soldadura — Estructura mezcladora</h1>
+
+<div class="intro">
+  <p><b>Piezas a soldar:</b> 4 conjuntos con cordón filete perimetral a 90° · <b>Total acumulado: ~56 cm de cordón</b></p>
+  <p><b>Material:</b> Perfil 35×35×2 mm · <b>Soldadora recomendada:</b> MIG/MAG hilo 0,6–0,8 mm ER70S-6</p>
+  <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:13px;">
+    <span style="display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:22px;height:14px;background:#c8d0d6;border:1px solid #333;"></span>Perfil 35×35×2 mm</span>
+    <span style="display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:22px;height:14px;background:#ffc700;border:1px solid #333;"></span>Cordón filete perimetral</span>
+  </div>
+  <div class="tip" style="margin-top:14px;">
+    ⚠️ <b>Orden obligatorio:</b> taladrar TODOS los agujeros <b>antes</b> de soldar — con las piezas sueltas es mucho más fácil. Una vez soldado es casi imposible taladrar en perpendicular.
+  </div>
+</div>
+
+
+<h2>① T-lateral (×2) — izquierda y derecha · unión riel ↔ travesaño</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="460" height="340">
+        <rect x="85" y="220" width="280" height="70" class="tube" />
+        <rect x="190" y="80" width="70" height="140" class="tube" />
+        <rect x="186" y="216" width="78" height="8" class="weld" />
+        <polygon points="186,216 190,212 190,220" class="weld" />
+        <polygon points="264,216 260,212 260,220" class="weld" />
+        <circle cx="125" cy="255" r="5.5" class="bolt-hole" />
+        <circle cx="325" cy="255" r="5.5" class="bolt-hole" />
+        <circle cx="225" cy="150" r="5.5" class="bolt-hole" />
+        <line x1="85" y1="320" x2="365" y2="320" class="dim"/>
+        <line x1="85" y1="312" x2="85" y2="328" class="dim"/>
+        <line x1="365" y1="312" x2="365" y2="328" class="dim"/>
+        <text x="225" y="340" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="80" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="80" x2="58" y2="80" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="155" class="dim-text" transform="rotate(-90 32 155)">7 cm</text>
+        <text x="225" y="115" text-anchor="middle" class="label">brazo corto (7 cm)</text>
+        <text x="225" y="270" text-anchor="middle" class="label">brazo largo (14 cm)</text>
+        <line x1="120" y1="200" x2="186" y2="218" class="axis-dash" stroke="#b88000"/>
+        <text x="60" y="205" class="label-b" fill="#b88000">⚙ filete</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Piezas a ensamblar</h3>
+      <table>
+        <tr><th>Cant.</th><th>Largo</th><th>Rol</th></tr>
+        <tr><td>1</td><td>14 cm</td><td>Brazo largo</td></tr>
+        <tr><td>1</td><td>7 cm</td><td>Brazo corto</td></tr>
+      </table>
+      <p style="font-size:12px;color:#666;">Hacer ×2 (espejadas: izquierda y derecha)</p>
+      <h3>Pasos de soldadura</h3>
+      <ul>
+        <li>Apoyar el brazo corto (7 cm) contra la cara lateral del brazo largo, <b>centrado</b></li>
+        <li>Verificar 90° con escuadra antes de puntear</li>
+        <li>4 puntos de soldadura en las esquinas → verificar geometría → cordón corrido</li>
+        <li><b>Cordón filete perimetral 360°</b> en la unión ≈ 14 cm</li>
+        <li>Amolar el cordón una vez frío</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<h2>② T-central (×1) — unión travesaño ↔ mástil</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="460" height="340">
+        <rect x="85" y="220" width="280" height="70" class="tube" />
+        <rect x="190" y="0" width="70" height="220" class="tube" />
+        <rect x="186" y="216" width="78" height="8" class="weld" />
+        <polygon points="186,216 190,212 190,220" class="weld" />
+        <polygon points="264,216 260,212 260,220" class="weld" />
+        <circle cx="145" cy="255" r="5.5" class="bolt-hole" />
+        <circle cx="305" cy="255" r="5.5" class="bolt-hole" />
+        <circle cx="225" cy="35" r="5.5" class="bolt-hole" />
+        <line x1="85" y1="320" x2="365" y2="320" class="dim"/>
+        <line x1="85" y1="312" x2="85" y2="328" class="dim"/>
+        <line x1="365" y1="312" x2="365" y2="328" class="dim"/>
+        <text x="225" y="340" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="0" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="0" x2="58" y2="0" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="115" class="dim-text" transform="rotate(-90 32 115)">14 cm</text>
+        <text x="225" y="50" text-anchor="middle" class="label">brazo vertical (14 cm)</text>
+        <text x="225" y="270" text-anchor="middle" class="label">brazo horizontal (14 cm)</text>
+        <line x1="120" y1="200" x2="186" y2="218" class="axis-dash" stroke="#b88000"/>
+        <text x="60" y="205" class="label-b" fill="#b88000">⚙ filete</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Piezas a ensamblar</h3>
+      <table>
+        <tr><th>Cant.</th><th>Largo</th><th>Rol</th></tr>
+        <tr><td>1</td><td>14 cm</td><td>Brazo horizontal</td></tr>
+        <tr><td>1</td><td>14 cm</td><td>Brazo vertical (mástil)</td></tr>
+      </table>
+      <h3>Pasos de soldadura</h3>
+      <ul>
+        <li>Apoyar el brazo vertical contra la cara <b>superior</b> del horizontal, centrado</li>
+        <li>⚠️ <b>Verificar verticalidad con nivel</b> — este brazo soporta el mástil contra vibración</li>
+        <li>4 puntos → verificar 90° en los dos planos → cordón corrido</li>
+        <li><b>Cordón filete perimetral 360°</b> ≈ 14 cm</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<h2>③ Bracket mástil ↔ motor (×1) — manga + casquillo</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 480" xmlns="http://www.w3.org/2000/svg" width="500" height="440">
+        <rect x="160" y="40" width="70" height="400" class="tube" />
+        <rect x="230" y="205" width="190" height="70" class="tube" />
+        <rect x="226" y="201" width="8" height="78" class="weld" />
+        <polygon points="226,201 222,205 230,205" class="weld" />
+        <polygon points="226,279 222,275 230,275" class="weld" />
+        <circle cx="195" cy="100" r="5.5" class="bolt-hole" />
+        <circle cx="195" cy="380" r="5.5" class="bolt-hole" />
+        <circle cx="380" cy="240" r="5.5" class="bolt-hole" />
+        <line x1="120" y1="40" x2="120" y2="440" class="dim"/>
+        <line x1="110" y1="40" x2="128" y2="40" class="dim"/>
+        <line x1="110" y1="440" x2="128" y2="440" class="dim"/>
+        <text x="102" y="240" class="dim-text" transform="rotate(-90 102 240)">20 cm</text>
+        <line x1="230" y1="310" x2="420" y2="310" class="dim"/>
+        <line x1="230" y1="302" x2="230" y2="318" class="dim"/>
+        <line x1="420" y1="302" x2="420" y2="318" class="dim"/>
+        <text x="325" y="328" text-anchor="middle" class="dim-text">9,5 cm</text>
+        <text x="195" y="30" text-anchor="middle" class="label">MANGA (20 cm)</text>
+        <text x="380" y="195" text-anchor="middle" class="label">CASQUILLO (9,5 cm)</text>
+        <line x1="250" y1="155" x2="226" y2="205" class="axis-dash" stroke="#b88000"/>
+        <text x="252" y="150" class="label-b" fill="#b88000">⚙ filete</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Piezas a ensamblar</h3>
+      <table>
+        <tr><th>Cant.</th><th>Largo</th><th>Rol</th></tr>
+        <tr><td>1</td><td>20 cm</td><td>Manga (envuelve el mástil)</td></tr>
+        <tr><td>1</td><td>9,5 cm</td><td>Casquillo (recibe tubo motor)</td></tr>
+      </table>
+      <h3>Pasos de soldadura</h3>
+      <ul>
+        <li>Apoyar el casquillo contra la cara <b>frontal</b> de la manga (cara que mira al motor)</li>
+        <li>Centrarlo a la mitad del alto: <b>10 cm desde cualquier extremo</b></li>
+        <li>4 puntos → verificar perpendicularidad → cordón corrido</li>
+        <li><b>Cordón filete perimetral 360°</b> ≈ 14 cm</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<h2>Resumen total de soldaduras</h2>
+<div class="summary-card">
+  <table>
+    <thead>
+      <tr style="background:#37474f;color:#fff;">
+        <th>#</th><th>Pieza</th><th>Componentes</th><th>Cant.</th><th>Cordón</th><th>Posición</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>①</td><td>T-lateral izquierda</td><td>14 cm + 7 cm</td><td>1</td><td>~14 cm filete</td><td>Plano · T estándar</td></tr>
+      <tr style="background:#f5f5f5"><td>①</td><td>T-lateral derecha (espejo)</td><td>14 cm + 7 cm</td><td>1</td><td>~14 cm filete</td><td>Plano · T espejada</td></tr>
+      <tr><td>②</td><td>T-central</td><td>14 cm + 14 cm</td><td>1</td><td>~14 cm filete</td><td>Plano · vertical larga</td></tr>
+      <tr style="background:#f5f5f5"><td>③</td><td>Bracket mástil–motor</td><td>20 cm + 9,5 cm</td><td>1</td><td>~14 cm filete</td><td>Plano · casquillo ⊥ manga</td></tr>
+      <tr style="background:#fff8c8;font-weight:bold;">
+        <td colspan="3" style="text-align:right;">TOTAL:</td>
+        <td>4 piezas</td><td>~56 cm cordón</td><td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip" style="margin-top:16px;">
+    <b>Secuencia recomendada:</b><br>
+    1 · Taladrar todos los agujeros con piezas sueltas &nbsp;→&nbsp;
+    2 · Puntear y verificar geometría &nbsp;→&nbsp;
+    3 · Cordón corrido &nbsp;→&nbsp;
+    4 · Amolar cordones &nbsp;→&nbsp;
+    5 · Antióxido + esmalte
+  </div>
+</div>
+
+</body>
+</html>

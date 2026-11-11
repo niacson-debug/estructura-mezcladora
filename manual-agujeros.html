@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual de Agujeros — Estructura mezcladora</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0 auto; padding: 20px; background: #f4f4f7; color: #222; max-width: 1100px; }
+  h1, h2 { color: #1a3a5c; }
+  h1 { text-align: center; border-bottom: 3px solid #d62020; padding-bottom: 10px; }
+  h2 { border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 30px; }
+  .intro, .piece-card, .summary-card { background: white; border: 1px solid #d8d8d8; border-radius: 8px; padding: 18px 22px; margin: 16px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .piece-title { font-size: 17px; font-weight: bold; color: #b00020; margin: 0 0 8px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+  .piece-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 800px) { .piece-grid { grid-template-columns: 1fr; } }
+  .svg-wrap { background: #fafbfc; border: 1px solid #e0e0e0; border-radius: 6px; padding: 6px; text-align: center; }
+  .specs { font-size: 14px; line-height: 1.6; }
+  .specs h3 { font-size: 14px; margin: 12px 0 4px; color: #b00020; }
+  .specs ul { margin: 4px 0; padding-left: 22px; }
+  .specs li { margin-bottom: 5px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 6px 0; }
+  th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: left; }
+  th { background: #fdecea; }
+  .tube { fill: #c8d0d6; stroke: #2a3a4a; stroke-width: 1.8; }
+  .weld { fill: #ffc700; stroke: #b88000; stroke-width: 1.2; }
+  .bolt-hole { fill: #d62020; stroke: #700000; stroke-width: 1.2; }
+  .dim { stroke: #0066aa; stroke-width: 1; fill: none; }
+  .dim-text { font: bold 13px Arial; fill: #0066aa; }
+  .label { font: italic 12px Arial; fill: #444; }
+  .label-b { font: bold 12px Arial; fill: #1a3a5c; }
+  .axis-dash { stroke: #aaa; stroke-width: 1; stroke-dasharray: 4 3; }
+  .tip { background:#fdecea; border-left:4px solid #d62020; padding:10px 14px; border-radius:4px; font-size:13px; margin-top:10px; }
+  .chip { display:inline-block; background:#d62020; color:white; border-radius:4px; padding:1px 7px; font-size:12px; font-weight:bold; margin-right:4px; }
+  .chip-gold { display:inline-block; background:#e8a000; color:white; border-radius:4px; padding:1px 7px; font-size:12px; font-weight:bold; margin-right:4px; }
+</style>
+</head>
+<body>
+
+<h1>🔩 Manual de Agujeros — Estructura mezcladora</h1>
+
+<div class="intro">
+  <p><b>Total agujeros por estructura: 28–30</b> · Todos deben realizarse <b>antes de soldar</b></p>
+  <p>
+    <span class="chip">Ø 8,5 mm</span> Agujeros pasantes para bulones 5/16" o M8 &nbsp;&nbsp;
+    <span class="chip-gold">Ø 9,5 mm</span> Agujeros para tuerca remachable (riv-nut) M6
+  </p>
+  <div class="tip">
+    <b>Mechas:</b> &nbsp;
+    Ø 4 mm (pre-taladro) → <b>Ø 8,5 mm</b> (pasantes) · &nbsp;
+    Ø 4 mm → <b>Ø 9,5 mm</b> (riv-nuts) &nbsp;|&nbsp;
+    Siempre usar <b>punzón centrador</b> antes de taladrar · Unas gotas de <b>aceite de corte</b> por agujero.
+  </div>
+</div>
+
+
+<h2>Resumen global — todos los agujeros de la estructura</h2>
+<div class="summary-card">
+  <table>
+    <thead>
+      <tr style="background:#37474f;color:#fff;">
+        <th>Pieza</th><th>Ø agujero</th><th>Cant.</th><th>Posición exacta</th><th>Herraje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>T-lateral — brazo largo (×2)</td><td><b>Ø 8,5 mm</b></td><td>4</td><td>2 cm de cada extremo del tubo</td><td>Bulón 5/16" pasante</td></tr>
+      <tr style="background:#f5f5f5"><td>T-lateral — brazo corto (×2)</td><td><b>Ø 8,5 mm</b></td><td>2</td><td>3,5 cm del extremo soldado (centro de la protrusión)</td><td>Bulón 5/16" pasante</td></tr>
+      <tr><td>T-central — brazo horizontal</td><td><b>Ø 8,5 mm</b></td><td>2</td><td>3 cm de cada extremo del tubo</td><td>Bulón 5/16" pasante</td></tr>
+      <tr style="background:#f5f5f5"><td>T-central — brazo vertical</td><td><b>Ø 8,5 mm</b></td><td>1</td><td>~10,7 cm del extremo soldado (centro protrusión)</td><td>Bulón 5/16" pasante</td></tr>
+      <tr><td>Bracket — manga (20 cm)</td><td><b>Ø 8,5 mm</b></td><td>2</td><td>±7 cm del centro vertical</td><td>Bulón 5/16" pasante</td></tr>
+      <tr style="background:#f5f5f5"><td>Bracket — casquillo (9,5 cm)</td><td><b>Ø 8,5 mm</b></td><td>1</td><td>~6 cm desde la unión con la manga</td><td>Bulón 5/16" pasante</td></tr>
+      <tr><td>Mástil 30×30 — grilla de altura</td><td><b>Ø 8,5 mm</b></td><td>7</td><td>Desde extremo superior: 3, 6, 9, 12, 15, 18, 21 cm (cada 3 cm)</td><td>Bulón 5/16" pasante (ajuste altura)</td></tr>
+      <tr style="background:#fff0f0"><td>Manga soporte — cara superior</td><td><b>Ø 8,5 mm</b></td><td>2</td><td>±3 cm del centro de la manga</td><td>Bulón 5/16" pasante + tuerca nylock</td></tr>
+      <tr style="background:#fff8e0"><td>Placa frontal (chapa 5 mm)</td><td><b>Ø 9,5 mm</b></td><td>2</td><td>2,5 cm de cada extremo, centrados en altura</td><td>Tuerca remachable M6</td></tr>
+      <tr style="background:#fff8e0"><td>Pestaña inferior (chapa 5 mm)</td><td><b>Ø 9,5 mm</b></td><td>2</td><td>2 cm de cada extremo</td><td>Tuerca remachable M6</td></tr>
+      <tr style="background:#f0fff0"><td>Cara inferior rieles — patas (×4)</td><td><b>Ø 8,5 mm</b></td><td>4</td><td>3 cm del extremo del riel, centrado en el ancho</td><td>Vástago pata pasa por aquí · tuerca nylock 5/16" por dentro</td></tr>
+      <tr style="background:#f8f0ff;font-weight:bold;"><td colspan="2">TOTAL</td><td>28–30</td><td colspan="2">—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2>① T-lateral (×2)</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="460" height="340">
+        <rect x="85" y="220" width="280" height="70" class="tube" />
+        <rect x="190" y="80" width="70" height="140" class="tube" />
+        <rect x="186" y="216" width="78" height="8" class="weld" />
+        <polygon points="186,216 190,212 190,220" class="weld" />
+        <polygon points="264,216 260,212 260,220" class="weld" />
+        <circle cx="125" cy="255" r="7" class="bolt-hole" />
+        <circle cx="325" cy="255" r="7" class="bolt-hole" />
+        <circle cx="225" cy="150" r="7" class="bolt-hole" />
+        <line x1="85" y1="200" x2="125" y2="200" class="dim"/>
+        <line x1="85" y1="192" x2="85" y2="208" class="dim"/>
+        <line x1="125" y1="192" x2="125" y2="208" class="dim"/>
+        <text x="105" y="196" text-anchor="middle" class="dim-text" font-size="11">2 cm</text>
+        <line x1="325" y1="200" x2="365" y2="200" class="dim"/>
+        <line x1="325" y1="192" x2="325" y2="208" class="dim"/>
+        <line x1="365" y1="192" x2="365" y2="208" class="dim"/>
+        <text x="345" y="196" text-anchor="middle" class="dim-text" font-size="11">2 cm</text>
+        <line x1="270" y1="150" x2="270" y2="220" class="dim"/>
+        <line x1="263" y1="150" x2="277" y2="150" class="dim"/>
+        <line x1="263" y1="220" x2="277" y2="220" class="dim"/>
+        <text x="295" y="190" class="dim-text" font-size="11">3,5 cm</text>
+        <line x1="85" y1="320" x2="365" y2="320" class="dim"/>
+        <line x1="85" y1="312" x2="85" y2="328" class="dim"/>
+        <line x1="365" y1="312" x2="365" y2="328" class="dim"/>
+        <text x="225" y="340" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="80" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="80" x2="58" y2="80" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="155" class="dim-text" transform="rotate(-90 32 155)">7 cm</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Agujeros — brazo largo / riel (14 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>2 agujeros</b> pasantes en el eje longitudinal</li>
+        <li>Posición desde los extremos del tubo: <b>2 cm del extremo A</b> y <b>2 cm del extremo B</b></li>
+        <li style="color:#888;font-size:12px;">(equivalente a ±5 cm del centro del tubo)</li>
+        <li>Pasar la mecha por <b>ambas paredes</b> del tubo (el bulón atraviesa de lado a lado)</li>
+      </ul>
+      <h3>Agujeros — brazo corto (7 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>1 agujero</b> pasante</li>
+        <li>Posición: <b>3,5 cm del extremo soldado</b> = centro de la protrusión del brazo corto</li>
+      </ul>
+      <div class="tip">Taladrar con las piezas <b>sueltas</b>, antes de soldar la T.</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>② T-central (×1)</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="460" height="340">
+        <rect x="85" y="220" width="280" height="70" class="tube" />
+        <rect x="190" y="0" width="70" height="220" class="tube" />
+        <rect x="186" y="216" width="78" height="8" class="weld" />
+        <polygon points="186,216 190,212 190,220" class="weld" />
+        <polygon points="264,216 260,212 260,220" class="weld" />
+        <circle cx="145" cy="255" r="7" class="bolt-hole" />
+        <circle cx="305" cy="255" r="7" class="bolt-hole" />
+        <circle cx="225" cy="35" r="7" class="bolt-hole" />
+        <line x1="85" y1="200" x2="145" y2="200" class="dim"/>
+        <line x1="85" y1="192" x2="85" y2="208" class="dim"/>
+        <line x1="145" y1="192" x2="145" y2="208" class="dim"/>
+        <text x="115" y="196" text-anchor="middle" class="dim-text" font-size="11">3 cm</text>
+        <line x1="305" y1="200" x2="365" y2="200" class="dim"/>
+        <line x1="305" y1="192" x2="305" y2="208" class="dim"/>
+        <line x1="365" y1="192" x2="365" y2="208" class="dim"/>
+        <text x="335" y="196" text-anchor="middle" class="dim-text" font-size="11">3 cm</text>
+        <line x1="270" y1="35" x2="270" y2="220" class="dim"/>
+        <line x1="263" y1="35" x2="277" y2="35" class="dim"/>
+        <line x1="263" y1="220" x2="277" y2="220" class="dim"/>
+        <text x="300" y="130" class="dim-text" font-size="11">~10,7 cm</text>
+        <line x1="85" y1="320" x2="365" y2="320" class="dim"/>
+        <line x1="85" y1="312" x2="85" y2="328" class="dim"/>
+        <line x1="365" y1="312" x2="365" y2="328" class="dim"/>
+        <text x="225" y="340" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="0" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="0" x2="58" y2="0" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="115" class="dim-text" transform="rotate(-90 32 115)">14 cm</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Agujeros — brazo horizontal / travesaño (14 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>2 agujeros</b> pasantes perpendiculares al travesaño</li>
+        <li>Posición desde los extremos: <b>3 cm de cada extremo</b></li>
+        <li style="color:#888;font-size:12px;">(equivalente a ±4 cm del centro del tubo)</li>
+      </ul>
+      <h3>Agujeros — brazo vertical (14 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>1 agujero</b> pasante</li>
+        <li>Posición: <b>~10,7 cm del extremo soldado</b> = centro de la protrusión vertical</li>
+      </ul>
+      <div class="tip">Taladrar con las piezas <b>sueltas</b>, antes de soldar la T.</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>③ Bracket mástil–motor (×1)</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 480" xmlns="http://www.w3.org/2000/svg" width="500" height="440">
+        <rect x="160" y="40" width="70" height="400" class="tube" />
+        <rect x="230" y="205" width="190" height="70" class="tube" />
+        <rect x="226" y="201" width="8" height="78" class="weld" />
+        <polygon points="226,201 222,205 230,205" class="weld" />
+        <polygon points="226,279 222,275 230,275" class="weld" />
+        <circle cx="195" cy="100" r="7" class="bolt-hole" />
+        <circle cx="195" cy="380" r="7" class="bolt-hole" />
+        <circle cx="380" cy="240" r="7" class="bolt-hole" />
+        <line x1="230" y1="100" x2="230" y2="240" class="dim"/>
+        <line x1="222" y1="100" x2="238" y2="100" class="dim"/>
+        <line x1="222" y1="240" x2="238" y2="240" class="dim"/>
+        <text x="260" y="175" class="dim-text" font-size="11">7 cm</text>
+        <line x1="230" y1="240" x2="230" y2="380" class="dim"/>
+        <line x1="222" y1="380" x2="238" y2="380" class="dim"/>
+        <text x="260" y="315" class="dim-text" font-size="11">7 cm</text>
+        <line x1="230" y1="270" x2="380" y2="270" class="dim"/>
+        <line x1="230" y1="262" x2="230" y2="278" class="dim"/>
+        <line x1="380" y1="262" x2="380" y2="278" class="dim"/>
+        <text x="305" y="290" text-anchor="middle" class="dim-text" font-size="11">~6 cm</text>
+        <line x1="120" y1="40" x2="120" y2="440" class="dim"/>
+        <line x1="110" y1="40" x2="128" y2="40" class="dim"/>
+        <line x1="110" y1="440" x2="128" y2="440" class="dim"/>
+        <text x="100" y="240" class="dim-text" transform="rotate(-90 100 240)">20 cm</text>
+        <line x1="230" y1="320" x2="420" y2="320" class="dim"/>
+        <line x1="230" y1="312" x2="230" y2="328" class="dim"/>
+        <line x1="420" y1="312" x2="420" y2="328" class="dim"/>
+        <text x="325" y="338" text-anchor="middle" class="dim-text">9,5 cm</text>
+        <text x="195" y="30" text-anchor="middle" class="label">MANGA (20 cm)</text>
+        <text x="380" y="195" text-anchor="middle" class="label">CASQUILLO (9,5 cm)</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Agujeros — manga (20 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>2 agujeros</b> pasantes (frente ↔ atrás)</li>
+        <li>Posición: <b>±7 cm del centro vertical</b> de la manga</li>
+        <li>Estos agujeros encajan con la grilla del mástil para regular la altura</li>
+      </ul>
+      <h3>Agujeros — casquillo (9,5 cm)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>1 agujero</b> pasante</li>
+        <li>Posición: <b>~6 cm desde la unión</b> con la manga</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<h2>④ Manga de soporte + placas</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 560 520" xmlns="http://www.w3.org/2000/svg" width="520" height="480">
+        <text x="180" y="18" text-anchor="middle" class="label-b">Vista lateral — manga sobre tubo porta-motor</text>
+        <rect x="40" y="80" width="320" height="90" class="tube" />
+        <rect x="36" y="103" width="328" height="44" style="fill:#f4f4f7;stroke:none;" />
+        <text x="200" y="76" text-anchor="middle" class="label-b">manga 16 cm</text>
+        <circle cx="140" cy="80" r="9" class="bolt-hole" />
+        <circle cx="260" cy="80" r="9" class="bolt-hole" />
+        <line x1="140" y1="52" x2="200" y2="52" class="dim"/>
+        <line x1="140" y1="44" x2="140" y2="60" class="dim"/>
+        <line x1="200" y1="44" x2="200" y2="60" class="dim"/>
+        <text x="170" y="44" text-anchor="middle" class="dim-text" font-size="11">3 cm</text>
+        <line x1="200" y1="52" x2="260" y2="52" class="dim"/>
+        <line x1="260" y1="44" x2="260" y2="60" class="dim"/>
+        <text x="230" y="44" text-anchor="middle" class="dim-text" font-size="11">3 cm</text>
+        <line x1="40" y1="200" x2="360" y2="200" class="dim"/>
+        <line x1="40" y1="192" x2="40" y2="208" class="dim"/>
+        <line x1="360" y1="192" x2="360" y2="208" class="dim"/>
+        <text x="200" y="218" text-anchor="middle" class="dim-text">16 cm</text>
+        <text x="420" y="260" text-anchor="middle" class="label-b">Placa frontal</text>
+        <rect x="360" y="270" width="10" height="110" class="tube" />
+        <circle cx="365" cy="295" r="7" style="fill:#e8a000;stroke:#8a5500;stroke-width:1.2;"/>
+        <circle cx="365" cy="355" r="7" style="fill:#e8a000;stroke:#8a5500;stroke-width:1.2;"/>
+        <line x1="390" y1="295" x2="390" y2="355" class="dim"/>
+        <line x1="382" y1="295" x2="398" y2="295" class="dim"/>
+        <line x1="382" y1="355" x2="398" y2="355" class="dim"/>
+        <text x="415" y="330" class="dim-text" font-size="10" text-anchor="middle">2,5 cm</text>
+        <text x="180" y="370" text-anchor="middle" class="label-b">Pestaña inferior</text>
+        <rect x="40" y="380" width="200" height="10" class="tube" />
+        <circle cx="80" cy="385" r="7" style="fill:#e8a000;stroke:#8a5500;stroke-width:1.2;"/>
+        <circle cx="200" cy="385" r="7" style="fill:#e8a000;stroke:#8a5500;stroke-width:1.2;"/>
+        <line x1="40" y1="408" x2="240" y2="408" class="dim"/>
+        <line x1="40" y1="400" x2="40" y2="416" class="dim"/>
+        <line x1="240" y1="400" x2="240" y2="416" class="dim"/>
+        <text x="140" y="426" text-anchor="middle" class="dim-text">10 cm</text>
+        <circle cx="46" cy="462" r="8" class="bolt-hole"/>
+        <text x="60" y="466" class="label" font-size="12">Ø 8,5 mm pasante (manga)</text>
+        <circle cx="46" cy="490" r="7" style="fill:#e8a000;stroke:#8a5500;stroke-width:1.2;"/>
+        <text x="60" y="494" class="label" font-size="12">Ø 9,5 mm tuerca remachable M6 (placas)</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Manga soporte — cara superior</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>2 agujeros</b> pasantes (eje vertical)</li>
+        <li>Posición: <b>±3 cm del centro</b> de la manga (16 cm total)</li>
+      </ul>
+      <h3>Placa frontal (chapa 5 mm)</h3>
+      <ul>
+        <li><span class="chip-gold">Ø 9,5 mm</span> <b>2 agujeros</b> para tuerca remachable M6</li>
+        <li>Posición: <b>2,5 cm de cada extremo</b>, centrados en altura</li>
+        <li>Usar riv-nut M6 "extra grip" (grip 3–6 mm) para chapa de 5 mm</li>
+      </ul>
+      <h3>Pestaña inferior (chapa 5 mm)</h3>
+      <ul>
+        <li><span class="chip-gold">Ø 9,5 mm</span> <b>2 agujeros</b> para tuerca remachable M6</li>
+        <li>Posición: <b>2 cm de cada extremo</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<h2>⑤ Patas niveladoras (×4)</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" width="440" height="260">
+        <text x="220" y="18" text-anchor="middle" class="label-b">Extremo del riel — vista lateral</text>
+        <rect x="60" y="30" width="260" height="60" class="tube"/>
+        <rect x="62.5" y="32.5" width="255" height="55" style="fill:#f4f4f7;stroke:none;"/>
+        <circle cx="110" cy="90" r="8" style="fill:#2a8a2a;stroke:#1a5a1a;stroke-width:1.5;"/>
+        <line x1="60" y1="115" x2="110" y2="115" class="dim"/>
+        <line x1="60" y1="107" x2="60" y2="123" class="dim"/>
+        <line x1="110" y1="107" x2="110" y2="123" class="dim"/>
+        <text x="85" y="134" text-anchor="middle" class="dim-text" font-size="11">3 cm</text>
+        <line x1="340" y1="30" x2="340" y2="90" class="dim"/>
+        <line x1="332" y1="30" x2="348" y2="30" class="dim"/>
+        <line x1="332" y1="90" x2="348" y2="90" class="dim"/>
+        <text x="358" y="64" class="dim-text" font-size="11">30 mm</text>
+        <text x="200" y="58" text-anchor="middle" class="label">tubo riel 30×30×1,25 mm</text>
+        <text x="140" y="165" class="label">← centrado en el ancho del tubo</text>
+        <text x="82" y="210" class="label" font-size="12">Ø 8,5 mm · vástago pata entra por abajo</text>
+        <text x="82" y="226" class="label" font-size="12">tuerca 5/16" nylock + arandela por dentro</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Agujeros en rieles (×4 rieles)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>1 agujero por extremo de riel</b> (4 agujeros totales)</li>
+        <li>Posición: <b>3 cm del extremo</b>, centrado en el ancho del tubo</li>
+        <li>Cara: <b>inferior</b> del riel</li>
+      </ul>
+      <h3>Montaje</h3>
+      <ul>
+        <li>El vástago del regatón/pata entra por abajo</li>
+        <li>Por dentro del tubo: arandela + tuerca 5/16" nylock</li>
+        <li>Apretar con llave de vaso 13 mm larga (interior tubo ~27 mm)</li>
+      </ul>
+      <div class="tip">Los 4 agujeros de patas pueden hacerse <b>después</b> de soldar la estructura — son en los rieles, no en las piezas soldadas.</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>⑥ Mástil 30×30 — grilla de agujeros</h2>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg" width="390" height="430">
+        <text x="200" y="18" text-anchor="middle" class="label-b">Extremo superior del mástil</text>
+        <rect x="170" y="30" width="60" height="310" class="tube"/>
+        <rect x="172.5" y="32.5" width="55" height="305" style="fill:#f4f4f7;stroke:none;"/>
+        <circle cx="200" cy="66"  r="6" class="bolt-hole"/>
+        <circle cx="200" cy="102" r="6" class="bolt-hole"/>
+        <circle cx="200" cy="138" r="6" class="bolt-hole"/>
+        <circle cx="200" cy="174" r="6" class="bolt-hole"/>
+        <circle cx="200" cy="210" r="6" class="bolt-hole"/>
+        <circle cx="200" cy="246" r="6" class="bolt-hole"/>
+        <circle cx="200" cy="282" r="6" class="bolt-hole"/>
+        <polyline points="170,340 180,330 190,340 200,330 210,340 220,330 230,340" style="fill:none;stroke:#2a3a4a;stroke-width:1.8;"/>
+        <polyline points="170,350 180,340 190,350 200,340 210,350 220,340 230,350" style="fill:none;stroke:#2a3a4a;stroke-width:1.8;"/>
+        <rect x="170" y="360" width="60" height="40" class="tube"/>
+        <rect x="172.5" y="362.5" width="55" height="35" style="fill:#f4f4f7;stroke:none;"/>
+        <text x="200" y="390" text-anchor="middle" class="label">extremo inferior</text>
+        <line x1="148" y1="30" x2="148" y2="66" class="dim"/>
+        <line x1="141" y1="30" x2="155" y2="30" class="dim"/>
+        <line x1="141" y1="66" x2="155" y2="66" class="dim"/>
+        <text x="130" y="52" class="dim-text" font-size="11" transform="rotate(-90 130 52)">3 cm</text>
+        <line x1="148" y1="66" x2="148" y2="102" class="dim"/>
+        <line x1="141" y1="102" x2="155" y2="102" class="dim"/>
+        <text x="130" y="88" class="dim-text" font-size="11" transform="rotate(-90 130 88)">3 cm</text>
+        <line x1="256" y1="30" x2="256" y2="400" class="dim"/>
+        <line x1="249" y1="30" x2="263" y2="30" class="dim"/>
+        <line x1="249" y1="400" x2="263" y2="400" class="dim"/>
+        <text x="275" y="215" class="dim-text" font-size="11" transform="rotate(-90 275 215)">100 cm total</text>
+        <line x1="206" y1="66"  x2="298" y2="66"  class="axis-dash"/>
+        <line x1="206" y1="102" x2="298" y2="102" class="axis-dash"/>
+        <line x1="206" y1="138" x2="298" y2="138" class="axis-dash"/>
+        <line x1="206" y1="174" x2="298" y2="174" class="axis-dash"/>
+        <line x1="206" y1="210" x2="298" y2="210" class="axis-dash"/>
+        <line x1="206" y1="246" x2="298" y2="246" class="axis-dash"/>
+        <line x1="206" y1="282" x2="298" y2="282" class="axis-dash"/>
+        <text x="302" y="69"  class="dim-text" font-size="10">3 cm</text>
+        <text x="302" y="105" class="dim-text" font-size="10">6 cm</text>
+        <text x="302" y="141" class="dim-text" font-size="10">9 cm</text>
+        <text x="302" y="177" class="dim-text" font-size="10">12 cm</text>
+        <text x="302" y="213" class="dim-text" font-size="10">15 cm</text>
+        <text x="302" y="249" class="dim-text" font-size="10">18 cm</text>
+        <text x="302" y="285" class="dim-text" font-size="10">21 cm</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Grilla de altura — agujeros pasantes</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> <b>7 agujeros</b> pasantes (frente ↔ atrás del tubo)</li>
+        <li>Referencia: <b>extremo superior del mástil</b></li>
+      </ul>
+      <table>
+        <thead><tr><th>#</th><th>Desde extremo superior</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>3 cm</b></td></tr>
+          <tr style="background:#f5f5f5"><td>2</td><td><b>6 cm</b></td></tr>
+          <tr><td>3</td><td><b>9 cm</b></td></tr>
+          <tr style="background:#f5f5f5"><td>4</td><td><b>12 cm</b></td></tr>
+          <tr><td>5</td><td><b>15 cm</b></td></tr>
+          <tr style="background:#f5f5f5"><td>6</td><td><b>18 cm</b></td></tr>
+          <tr><td>7</td><td><b>21 cm</b></td></tr>
+        </tbody>
+      </table>
+      <ul style="margin-top:10px;">
+        <li>La manga del bracket desliza sobre el mástil y fija la altura usando dos de estos agujeros</li>
+        <li>Centrado en el ancho del tubo en ambas caras</li>
+      </ul>
+      <div class="tip">Marcar todos los puntos con cinta métrica y punzón <b>antes</b> de taladrar el primero.</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Herramientas para taladrar</h2>
+<div class="summary-card">
+  <table>
+    <thead><tr style="background:#37474f;color:#fff;"><th>Herramienta</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><b>Taladro eléctrico</b> (mín. 500 W) o taladro de columna</td><td>Columna da mejor perpendicularidad; preferible para los agujeros de los conectores T</td></tr>
+      <tr style="background:#f5f5f5"><td><b>Punzón de golpe</b></td><td>Golpear con martillo antes de taladrar — evita que la mecha resbale sobre el acero</td></tr>
+      <tr><td><b>Mecha HSS Ø 4 mm</b></td><td>Pre-taladro para todos los agujeros</td></tr>
+      <tr style="background:#f5f5f5"><td><b>Mecha HSS Ø 8,5 mm</b></td><td>Agujeros pasantes para bulones 5/16" — sirve tanto para M8 como para 5/16"</td></tr>
+      <tr><td><b>Mecha HSS Ø 9,5 mm</b></td><td>Agujeros para tuercas remachables M6 — verificar con calibre que quede entre 9,3 y 9,6 mm</td></tr>
+      <tr style="background:#f5f5f5"><td><b>Aceite de corte o WD-40</b></td><td>Unas gotas sobre la mecha al taladrar — prolonga la vida de la mecha y evita calor</td></tr>
+      <tr><td><b>Lima redonda o escariador manual</b></td><td>Desbarbar agujeros antes de instalar riv-nuts — el filo de rebaba impide el asentamiento correcto</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

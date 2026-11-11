@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual Completo — Estructura mezcladora</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0 auto; padding: 20px; background: #f4f4f7; color: #222; max-width: 1100px; }
+  h1, h2 { color: #1a3a5c; }
+  h1 { text-align: center; border-bottom: 3px solid #1a3a5c; padding-bottom: 10px; }
+  h2 { border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 30px; display: flex; align-items: center; gap: 10px; }
+  .intro, .piece-card, .summary-card, .mat-card { background: white; border: 1px solid #d8d8d8; border-radius: 8px; padding: 18px 22px; margin: 16px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .piece-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 800px) { .piece-grid { grid-template-columns: 1fr; } }
+  .svg-wrap { background: #fafbfc; border: 1px solid #e0e0e0; border-radius: 6px; padding: 6px; text-align: center; }
+  .specs { font-size: 14px; line-height: 1.6; }
+  .specs h3 { font-size: 14px; margin: 12px 0 4px; color: #1a3a5c; }
+  .specs ul { margin: 4px 0; padding-left: 22px; }
+  .specs li { margin-bottom: 5px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 6px 0; }
+  th, td { border: 1px solid #ccc; padding: 5px 8px; text-align: left; }
+  th { background: #e8edf5; }
+  .tube { fill: #c8d0d6; stroke: #2a3a4a; stroke-width: 1.8; }
+  .weld { fill: #ffc700; stroke: #b88000; stroke-width: 1.2; }
+  .bolt-hole { fill: #d62020; stroke: #700000; stroke-width: 1.2; }
+  .rivnut-hole { fill: #e8a000; stroke: #8a5500; stroke-width: 1.2; }
+  .leg-hole { fill: #2a8a2a; stroke: #1a5a1a; stroke-width: 1.5; }
+  .dim { stroke: #0066aa; stroke-width: 1; fill: none; }
+  .dim-text { font: bold 13px Arial; fill: #0066aa; }
+  .label { font: italic 12px Arial; fill: #444; }
+  .label-b { font: bold 12px Arial; fill: #1a3a5c; }
+  .axis-dash { stroke: #aaa; stroke-width: 1; stroke-dasharray: 4 3; }
+  .tip { background:#fff8dc; border-left:4px solid #ffc700; padding:10px 14px; border-radius:4px; font-size:13px; margin-top:10px; }
+  .warn { background:#fdecea; border-left:4px solid #d62020; padding:10px 14px; border-radius:4px; font-size:13px; margin-top:10px; }
+  .section-number { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#1a3a5c; color:white; font-size:14px; font-weight:bold; flex-shrink:0; }
+  .chip { display:inline-block; background:#d62020; color:white; border-radius:4px; padding:1px 7px; font-size:12px; font-weight:bold; margin-right:4px; }
+  .chip-gold { display:inline-block; background:#e8a000; color:white; border-radius:4px; padding:1px 7px; font-size:12px; font-weight:bold; margin-right:4px; }
+  .leyenda { display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; font-size:13px; }
+  .leyenda span { display:flex; align-items:center; gap:6px; }
+  .dot { display:inline-block; width:14px; height:14px; border-radius:50%; border:1px solid #333; }
+</style>
+</head>
+<body>
+
+<h1>🔧 Manual Completo — Estructura mezcladora</h1>
+
+<div class="intro">
+  <p><b>Materiales:</b> Perfil 30×30×1,25 mm (rieles, mástil) · Perfil 35×35×2 mm (uniones soldadas)</p>
+  <p><b>Tornillería:</b> Bulones 5/16" × 1¾" · Tuercas 5/16" nylock · Riv-nuts M6</p>
+  <div class="leyenda">
+    <span><span class="dot" style="background:#c8d0d6;"></span>Perfil estructural</span>
+    <span><span class="dot" style="background:#ffc700;"></span>Cordón de soldadura</span>
+    <span><span class="dot" style="background:#d62020;"></span>Agujero pasante Ø 8,5 mm</span>
+    <span><span class="dot" style="background:#e8a000;"></span>Riv-nut M6 Ø 9,5 mm</span>
+    <span><span class="dot" style="background:#2a8a2a;"></span>Pata niveladora Ø 8,5 mm</span>
+  </div>
+</div>
+
+
+<h2><span class="section-number">1</span> Visión general — diagrama de armado</h2>
+<div class="piece-card">
+  <div class="svg-wrap">
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" width="680" height="400">
+      <!-- Rieles horizontales -->
+      <rect x="80"  y="80"  width="540" height="30" class="tube"/>
+      <rect x="80"  y="310" width="540" height="30" class="tube"/>
+      <!-- Travesaño central -->
+      <rect x="310" y="80"  width="30"  height="260" class="tube"/>
+      <!-- T-laterales -->
+      <rect x="80"  y="50"  width="30"  height="60" class="tube"/>
+      <rect x="590" y="50"  width="30"  height="60" class="tube"/>
+      <rect x="80"  y="310" width="30"  height="60" class="tube"/>
+      <rect x="590" y="310" width="30"  height="60" class="tube"/>
+      <!-- Mástil vertical -->
+      <rect x="318" y="30" width="24" height="50" class="tube" fill="#a8b8c8"/>
+      <!-- Soldaduras -->
+      <rect x="80"  y="78"  width="30"  height="4" class="weld"/>
+      <rect x="590" y="78"  width="30"  height="4" class="weld"/>
+      <rect x="80"  y="338" width="30"  height="4" class="weld"/>
+      <rect x="590" y="338" width="30"  height="4" class="weld"/>
+      <rect x="308" y="80"  width="4"   height="260" class="weld"/>
+      <!-- Agujeros rieles -->
+      <circle cx="130" cy="95"  r="6" class="bolt-hole"/>
+      <circle cx="560" cy="95"  r="6" class="bolt-hole"/>
+      <circle cx="130" cy="325" r="6" class="bolt-hole"/>
+      <circle cx="560" cy="325" r="6" class="bolt-hole"/>
+      <!-- Agujeros travesaño -->
+      <circle cx="325" cy="130" r="6" class="bolt-hole"/>
+      <circle cx="325" cy="270" r="6" class="bolt-hole"/>
+      <!-- Patas -->
+      <circle cx="110" cy="110" r="7" class="leg-hole"/>
+      <circle cx="610" cy="110" r="7" class="leg-hole"/>
+      <circle cx="110" cy="340" r="7" class="leg-hole"/>
+      <circle cx="610" cy="340" r="7" class="leg-hole"/>
+      <!-- Labels -->
+      <text x="350" y="200" text-anchor="middle" class="label" font-size="13">Travesaño central</text>
+      <text x="200" y="72"  text-anchor="middle" class="label">Riel izquierdo</text>
+      <text x="500" y="72"  text-anchor="middle" class="label">Riel derecho</text>
+      <text x="330" y="22"  text-anchor="middle" class="label-b">Mástil</text>
+      <text x="60"  y="68"  text-anchor="end"    class="label">T-lat.</text>
+      <text x="660" y="68"  text-anchor="start"  class="label">T-lat.</text>
+    </svg>
+  </div>
+  <p style="font-size:13px;text-align:center;color:#666;margin-top:6px;">Vista superior esquemática · las soldaduras (amarillo) van en las uniones de los perfiles 35×35 mm</p>
+</div>
+
+
+<h2><span class="section-number">2</span> Lista de materiales y herrajes</h2>
+<div class="mat-card">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div>
+      <h3 style="color:#1a3a5c;margin-top:0;">Perfiles</h3>
+      <table>
+        <tr><th>Perfil</th><th>Piezas</th><th>Barras 6m</th></tr>
+        <tr><td>30×30×1,25 mm</td><td>rieles, mástil, motor</td><td>1</td></tr>
+        <tr style="background:#f5f5f5"><td>35×35×2 mm</td><td>Ts + bracket</td><td>1</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3 style="color:#1a3a5c;margin-top:0;">Herrajes</h3>
+      <table>
+        <tr><th>Artículo</th><th>Cant.</th></tr>
+        <tr><td>Bulón 5/16" × 1¾" + tuerca</td><td>20</td></tr>
+        <tr style="background:#f5f5f5"><td>Tuerca nylock 5/16"</td><td>4</td></tr>
+        <tr><td>Arandela 5/16"</td><td>30</td></tr>
+        <tr style="background:#f5f5f5"><td>Riv-nut M6 (grip 3–6 mm)</td><td>8</td></tr>
+        <tr><td>Patas niveladoras 5/16"</td><td>4</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="tip" style="margin-top:12px;">
+    <b>Patas:</b> El vástago 5/16" pasa por un agujero Ø 8,5 mm en la cara inferior del riel. Se fija con tuerca nylock 5/16" + arandela por dentro del tubo (llave de vaso 13 mm larga).
+  </div>
+</div>
+
+
+<h2><span class="section-number">3</span> Herramientas necesarias</h2>
+<div class="mat-card">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:13px;">
+    <div>
+      <h3 style="color:#1a3a5c;margin-top:0;">✂ Corte</h3>
+      <ul>
+        <li>Amoladora angular 115 mm</li>
+        <li>Disco de corte 1 mm para metal</li>
+        <li>Cinta métrica + marcador</li>
+        <li>Escuadra metálica</li>
+      </ul>
+      <h3 style="color:#1a3a5c;">🔩 Taladrado</h3>
+      <ul>
+        <li>Taladro eléctrico ≥ 500 W · modo taladro (sin percusión)</li>
+        <li>Punzón de golpe + martillo</li>
+        <li>Mecha HSS Ø 4 mm (pre-taladro)</li>
+        <li>Mecha HSS Ø 8,5 mm (pasantes)</li>
+        <li>Mecha HSS Ø 9,5 mm (riv-nuts)</li>
+        <li>Aceite de corte</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:#1a3a5c;margin-top:0;">🔥 Soldadura</h3>
+      <ul>
+        <li>Soldadora MIG/MAG · hilo ER70S-6 Ø 0,8 mm</li>
+        <li>Gas CO₂ o mezcla Ar+CO₂</li>
+        <li>Careta de soldar autooscurecente</li>
+        <li>Guantes de cuero</li>
+        <li>Escuadra magnética</li>
+        <li>Amoladora + disco de desbaste</li>
+      </ul>
+      <h3 style="color:#1a3a5c;">🎨 Acabado</h3>
+      <ul>
+        <li>Convertidor de óxido (Ferox)</li>
+        <li>Antióxido sintético (fondo)</li>
+        <li>Esmalte sintético (color final)</li>
+        <li>Brocha o soplete</li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn">
+    ⚠️ <b>Remachadora roscada:</b> Para instalar los riv-nuts M6 se necesita una <b>remachadora roscada</b> (también llamada "remachadora de tuercas" o "nutsert tool") — NO es la remachadora común de remaches ciegos. Son herramientas distintas. Alternativa sin herramienta especial: tornillo M6 + tuercas para expandir el riv-nut manualmente.
+  </div>
+</div>
+
+
+<h2><span class="section-number">4</span> Plan de cortes</h2>
+<div class="piece-card">
+  <h3 style="color:#1a3a5c;margin-top:0;">Perfil 30×30×1,25 mm — 1 barra de 6 m</h3>
+  <table>
+    <tr><th>Pieza</th><th>Largo</th><th>Cant.</th><th>Total</th></tr>
+    <tr><td>Riel lateral</td><td>55 cm</td><td>4</td><td>220 cm</td></tr>
+    <tr style="background:#f5f5f5"><td>Mástil</td><td>100 cm</td><td>1</td><td>100 cm</td></tr>
+    <tr><td>Tubo porta-motor</td><td>30 cm</td><td>1</td><td>30 cm</td></tr>
+    <tr><td>Travesaño</td><td>55 cm</td><td>1</td><td>55 cm</td></tr>
+    <tr style="background:#e8edf5;font-weight:bold;"><td colspan="3">Total usado</td><td>405 cm / 600 cm · sobrante ~195 cm</td></tr>
+  </table>
+  <h3 style="color:#1a3a5c;margin-top:16px;">Perfil 35×35×2 mm — 1 barra de 6 m</h3>
+  <table>
+    <tr><th>Pieza</th><th>Largo</th><th>Cant.</th><th>Total</th></tr>
+    <tr><td>T-lateral brazo largo</td><td>14 cm</td><td>2</td><td>28 cm</td></tr>
+    <tr style="background:#f5f5f5"><td>T-lateral brazo corto</td><td>7 cm</td><td>2</td><td>14 cm</td></tr>
+    <tr><td>T-central horizontal</td><td>14 cm</td><td>1</td><td>14 cm</td></tr>
+    <tr style="background:#f5f5f5"><td>T-central vertical</td><td>14 cm</td><td>1</td><td>14 cm</td></tr>
+    <tr><td>Bracket manga</td><td>20 cm</td><td>1</td><td>20 cm</td></tr>
+    <tr style="background:#f5f5f5"><td>Bracket casquillo</td><td>9,5 cm</td><td>1</td><td>9,5 cm</td></tr>
+    <tr style="background:#e8edf5;font-weight:bold;"><td colspan="3">Total usado</td><td>~99,5 cm / 600 cm · sobrante ~500 cm</td></tr>
+  </table>
+</div>
+
+
+<h2><span class="section-number">5</span> Fabricación de piezas — soldadura y agujeros</h2>
+
+<h3 style="margin-top:20px;">① T-lateral (×2) — brazo largo 14 cm + brazo corto 7 cm</h3>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="440" height="330">
+        <rect x="85" y="220" width="280" height="70" class="tube"/>
+        <rect x="190" y="80" width="70" height="140" class="tube"/>
+        <rect x="186" y="216" width="78" height="8" class="weld"/>
+        <polygon points="186,216 190,212 190,220" class="weld"/>
+        <polygon points="264,216 260,212 260,220" class="weld"/>
+        <circle cx="105" cy="255" r="6" class="bolt-hole"/>
+        <circle cx="345" cy="255" r="6" class="bolt-hole"/>
+        <circle cx="225" cy="150" r="6" class="bolt-hole"/>
+        <line x1="85" y1="318" x2="365" y2="318" class="dim"/>
+        <line x1="85" y1="310" x2="85" y2="326" class="dim"/>
+        <line x1="365" y1="310" x2="365" y2="326" class="dim"/>
+        <text x="225" y="336" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="80" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="80" x2="58" y2="80" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="155" class="dim-text" transform="rotate(-90 32 155)">7 cm</text>
+        <text x="225" y="270" text-anchor="middle" class="label">riel (2 cm de cada extremo)</text>
+        <text x="225" y="115" text-anchor="middle" class="label">brazo corto (3,5 cm del extremo)</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Soldadura</h3>
+      <ul>
+        <li>Brazo corto ⊥ brazo largo, centrado · verificar 90°</li>
+        <li>4 puntos → cordón filete perimetral 360° ≈ 14 cm</li>
+        <li>Hacer ×2 espejadas (izquierda y derecha)</li>
+      </ul>
+      <h3>Agujeros (taladrar antes de soldar)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> Brazo largo: <b>2 cm de cada extremo</b></li>
+        <li><span class="chip">Ø 8,5 mm</span> Brazo corto: <b>3,5 cm del extremo soldado</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:20px;">② T-central (×1) — brazo horizontal 14 cm + brazo vertical 14 cm</h3>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="440" height="330">
+        <rect x="85" y="220" width="280" height="70" class="tube"/>
+        <rect x="190" y="0" width="70" height="220" class="tube"/>
+        <rect x="186" y="216" width="78" height="8" class="weld"/>
+        <polygon points="186,216 190,212 190,220" class="weld"/>
+        <polygon points="264,216 260,212 260,220" class="weld"/>
+        <circle cx="113" cy="255" r="6" class="bolt-hole"/>
+        <circle cx="337" cy="255" r="6" class="bolt-hole"/>
+        <circle cx="225" cy="35"  r="6" class="bolt-hole"/>
+        <line x1="85" y1="318" x2="365" y2="318" class="dim"/>
+        <line x1="85" y1="310" x2="85" y2="326" class="dim"/>
+        <line x1="365" y1="310" x2="365" y2="326" class="dim"/>
+        <text x="225" y="336" text-anchor="middle" class="dim-text">14 cm</text>
+        <line x1="50" y1="0" x2="50" y2="220" class="dim"/>
+        <line x1="40" y1="0" x2="58" y2="0" class="dim"/>
+        <line x1="40" y1="220" x2="58" y2="220" class="dim"/>
+        <text x="32" y="115" class="dim-text" transform="rotate(-90 32 115)">14 cm</text>
+        <text x="225" y="270" text-anchor="middle" class="label">travesaño (3 cm de cada extremo)</text>
+        <text x="225" y="55" text-anchor="middle" class="label">mástil (10,7 cm del extremo)</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Soldadura</h3>
+      <ul>
+        <li>Brazo vertical ⊥ brazo horizontal, centrado</li>
+        <li>⚠️ Verificar verticalidad con nivel</li>
+        <li>4 puntos → cordón filete perimetral 360° ≈ 14 cm</li>
+      </ul>
+      <h3>Agujeros (taladrar antes de soldar)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> Brazo horizontal: <b>3 cm de cada extremo</b></li>
+        <li><span class="chip">Ø 8,5 mm</span> Brazo vertical: <b>~10,7 cm del extremo soldado</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:20px;">③ Bracket mástil–motor (×1) — manga 20 cm + casquillo 9,5 cm</h3>
+<div class="piece-card">
+  <div class="piece-grid">
+    <div class="svg-wrap">
+      <svg viewBox="0 0 480 440" xmlns="http://www.w3.org/2000/svg" width="440" height="400">
+        <rect x="160" y="40" width="70" height="360" class="tube"/>
+        <rect x="230" y="185" width="170" height="70" class="tube"/>
+        <rect x="226" y="181" width="8" height="78" class="weld"/>
+        <polygon points="226,181 222,185 230,185" class="weld"/>
+        <polygon points="226,259 222,255 230,255" class="weld"/>
+        <circle cx="195" cy="90"  r="6" class="bolt-hole"/>
+        <circle cx="195" cy="350" r="6" class="bolt-hole"/>
+        <circle cx="360" cy="220" r="6" class="bolt-hole"/>
+        <line x1="120" y1="40"  x2="120" y2="400" class="dim"/>
+        <line x1="110" y1="40"  x2="128" y2="40"  class="dim"/>
+        <line x1="110" y1="400" x2="128" y2="400" class="dim"/>
+        <text x="102" y="220" class="dim-text" transform="rotate(-90 102 220)">20 cm</text>
+        <line x1="230" y1="300" x2="400" y2="300" class="dim"/>
+        <line x1="230" y1="292" x2="230" y2="308" class="dim"/>
+        <line x1="400" y1="292" x2="400" y2="308" class="dim"/>
+        <text x="315" y="318" text-anchor="middle" class="dim-text">9,5 cm</text>
+        <text x="195" y="30" text-anchor="middle" class="label">MANGA</text>
+        <text x="360" y="175" text-anchor="middle" class="label">CASQUILLO</text>
+      </svg>
+    </div>
+    <div class="specs">
+      <h3>Soldadura</h3>
+      <ul>
+        <li>Casquillo ⊥ manga, centrado a 10 cm de cada extremo</li>
+        <li>Cordón filete perimetral 360° ≈ 14 cm</li>
+      </ul>
+      <h3>Agujeros (taladrar antes de soldar)</h3>
+      <ul>
+        <li><span class="chip">Ø 8,5 mm</span> Manga: <b>±7 cm del centro vertical</b></li>
+        <li><span class="chip">Ø 8,5 mm</span> Casquillo: <b>~6 cm desde la unión</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:20px;">④ Mástil 30×30 — grilla de altura</h3>
+<div class="piece-card">
+  <div class="specs">
+    <ul>
+      <li><span class="chip">Ø 8,5 mm</span> <b>7 agujeros</b> pasantes desde el extremo superior</li>
+      <li>Posiciones: <b>3 · 6 · 9 · 12 · 15 · 18 · 21 cm</b> del extremo superior</li>
+      <li>Centrados en el ancho del tubo · ambas caras frente ↔ atrás</li>
+      <li>La manga del bracket desliza sobre el mástil y fija la altura usando 2 de estos agujeros</li>
+    </ul>
+  </div>
+</div>
+
+<h3 style="margin-top:20px;">⑤ Patas niveladoras — rieles (×4)</h3>
+<div class="piece-card">
+  <div class="specs">
+    <ul>
+      <li><span class="chip" style="background:#2a8a2a;">Ø 8,5 mm</span> <b>1 agujero por extremo de riel</b> (4 en total)</li>
+      <li>Posición: <b>3 cm del extremo</b>, centrado en el ancho, cara <b>inferior</b> del tubo</li>
+      <li>Montaje: vástago 5/16" entra por abajo → arandela + tuerca nylock 5/16" por dentro</li>
+      <li>Estos agujeros se pueden hacer <b>después de soldar</b> la estructura</li>
+    </ul>
+  </div>
+</div>
+
+
+<h2><span class="section-number">6</span> Resumen total de soldaduras</h2>
+<div class="summary-card">
+  <table>
+    <thead>
+      <tr style="background:#37474f;color:#fff;">
+        <th>#</th><th>Pieza</th><th>Componentes</th><th>Cant.</th><th>Cordón</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>①</td><td>T-lateral izquierda</td><td>14 cm + 7 cm</td><td>1</td><td>~14 cm filete</td></tr>
+      <tr style="background:#f5f5f5"><td>①</td><td>T-lateral derecha (espejo)</td><td>14 cm + 7 cm</td><td>1</td><td>~14 cm filete</td></tr>
+      <tr><td>②</td><td>T-central</td><td>14 cm + 14 cm</td><td>1</td><td>~14 cm filete</td></tr>
+      <tr style="background:#f5f5f5"><td>③</td><td>Bracket mástil–motor</td><td>20 cm + 9,5 cm</td><td>1</td><td>~14 cm filete</td></tr>
+      <tr style="background:#fff8c8;font-weight:bold;">
+        <td colspan="3" style="text-align:right;">TOTAL:</td>
+        <td>4 piezas</td><td>~56 cm cordón</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="tip" style="margin-top:16px;">
+    <b>Secuencia de trabajo:</b>
+    1 · Cortar todos los perfiles &nbsp;→&nbsp;
+    2 · Taladrar con piezas sueltas &nbsp;→&nbsp;
+    3 · Puntear y verificar geometría &nbsp;→&nbsp;
+    4 · Cordón corrido &nbsp;→&nbsp;
+    5 · Amolar cordones &nbsp;→&nbsp;
+    6 · Antióxido + esmalte
+  </div>
+</div>
+
+</body>
+</html>
